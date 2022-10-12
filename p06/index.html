@@ -1,0 +1,230 @@
+<html>
+<head></head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<style>
+		body {
+  margin: 0px;
+  font-family: 'Roboto';
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h3{
+  margin: auto;
+  margin-top: 10px;
+}
+
+.baris::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+[class*="kolom-"] {
+  float: left;
+  /*padding: 10px;*/
+  /*border: 1px solid red;*/
+}
+
+.kolom-1 {width: 8.33%;}
+.kolom-2 {width: 16.66%;}
+.kolom-3 {width: 25%;}
+.kolom-4 {width: 33.33%;}
+.kolom-5 {width: 41.66%;}
+.kolom-6 {width: 50%;}
+.kolom-7 {width: 58.33%;}
+.kolom-8 {width: 66.66%;}
+.kolom-9 {width: 75%;}
+.kolom-10 {width: 83.33%;}
+.kolom-11 {width: 91.66%;}
+.kolom-12 {width: 100%;}
+
+@media screen and (min-width: 993px) {
+  .ikat{
+    width: 900px;
+    margin: auto;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .ikat{
+    width: 800px;
+    margin: auto;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .ikat{
+    width: 100%;
+    margin: auto;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .ikat{
+    width: 100%;
+    margin: auto;
+  }
+
+  [class*="kolom-"] {
+  float: left;
+  width: 100%;
+  /*padding: 10px;*/
+  /*border: 1px solid red;*/
+}
+}
+
+.kepala_ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: lemonchiffon;
+}
+
+.kepala_li {
+  float: left;
+}
+
+.kepala_li a {
+  display: block;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.kepala_li a:hover:not(.aktif) {
+  background-color:  peachpuff;
+  color: white;
+}
+
+.aktif {
+  color: white;
+  background-color:  burlywood;
+}
+	</style>
+</head>
+<body>
+	<div class="ikat">
+		<div class="baris">
+			<div class="kolom-12" style="margin-bottom: 10px;">
+				<nav class="kepala_nav">
+					<ul class="kepala_ul">
+						<li class="kepala_li"><a href="#" class="" id="klik_home">Home</a></li>
+						<li class="kepala_li"><a href="#" id="klik_produk" class="aktif">Produk</a></li>
+						<li class="kepala_li"><a href="#" id="klik_layanan">Layanan</a></li>
+						<li class="kepala_li"><a href="#" id="klik_tentang">Tentang</a></li>
+						<li class="kepala_li"><a href="#" id="klik_kontak">Kontak</a></li>
+					</ul>
+				</nav>
+			</div>
+
+			<div id="home" style="display: none;">
+			Home
+			</div>
+
+			<div id="produk" style="display: block;" hidden="">
+			Produk
+			</div>
+
+			<div id="layanan" hidden="">
+			Layanan
+			</div>
+
+			<div id="tentang" hidden="">
+			Tentang
+			</div>
+
+			<div id="kontak" hidden="">
+			Kontak
+			</div>
+		</div>
+	</div>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$(document).on('click','#klik_home',function(e){
+			e.preventDefault();
+
+			$("#klik_home").addClass("aktif");
+			$("#klik_produk").removeClass("aktif");
+			$("#klik_layanan").removeClass("aktif");
+			$("#klik_tentang").removeClass("aktif");
+			$("#klik_kontak").removeClass("aktif");
+
+			$("#home").fadeIn(500);
+			$("#produk").fadeOut(0);
+			$("#layanan").fadeOut(0);
+			$("#tentang").fadeOut(0);
+			$("#kontak").fadeOut(0);
+		})
+		$(document).on('click','#klik_produk',function(e){
+			e.preventDefault();
+
+			$("#klik_home").removeClass("aktif");
+			$("#klik_produk").addClass("aktif");
+			$("#klik_layanan").removeClass("aktif");
+			$("#klik_tentang").removeClass("aktif");
+			$("#klik_kontak").removeClass("aktif");
+
+			$("#home").fadeOut(0);
+			$("#produk").fadeIn(500);
+			$("#layanan").fadeOut(0);
+			$("#tentang").fadeOut(0);
+			$("#kontak").fadeOut(0);
+		})
+		$(document).on('click','#klik_layanan',function(e){
+			e.preventDefault();
+
+			$("#klik_home").removeClass("aktif");
+			$("#klik_produk").removeClass("aktif");
+			$("#klik_layanan").addClass("aktif");
+			$("#klik_tentang").removeClass("aktif");
+			$("#klik_kontak").removeClass("aktif");
+
+			$("#home").fadeOut(0);
+			$("#produk").fadeOut(0);
+			$("#layanan").fadeIn(500);
+			$("#tentang").fadeOut(0);
+			$("#kontak").fadeOut(0);
+		})
+		$(document).on('click','#klik_tentang',function(e){
+			e.preventDefault();
+
+			$("#klik_home").removeClass("aktif");
+			$("#klik_produk").removeClass("aktif");
+			$("#klik_layanan").removeClass("aktif");
+			$("#klik_tentang").addClass("aktif");
+			$("#klik_kontak").removeClass("aktif");
+
+			$("#home").fadeOut(0);
+			$("#produk").fadeOut(0);
+			$("#layanan").fadeOut(0);
+			$("#tentang").fadeIn(500);
+			$("#kontak").fadeOut(0);
+		})
+		$(document).on('click','#klik_kontak',function(e){
+			e.preventDefault();
+
+			$("#klik_home").removeClass("aktif");
+			$("#klik_produk").removeClass("aktif");
+			$("#klik_layanan").removeClass("aktif");
+			$("#klik_tentang").removeClass("aktif");
+			$("#klik_kontak").addClass("aktif");
+
+			$("#home").fadeOut(0);
+			$("#produk").fadeOut(0);
+			$("#layanan").fadeOut(0);
+			$("#tentang").fadeOut(0);
+			$("#kontak").fadeIn(500);
+		})
+	})
+</script>
+
+
+
+</body></html>
